@@ -141,24 +141,40 @@ int main() {
 <img width="1898" height="616" alt="image" src="https://github.com/user-attachments/assets/428c1501-fb44-49a0-b435-771c22e1a2db" />
 
 
-**Завдання 3. Виведення списку у зворотному порядку**
+**Завдання 3. Опрацювання символів**
+
+<img width="613" height="52" alt="image" src="https://github.com/user-attachments/assets/330b7119-0484-456b-91c8-535960d1bed8" />
 
 *Програмний код:*
 
 ```cpp
 #include <iostream>
-#include <list>
+#include <queue>
+#include <string>
 
 using namespace std;
 
 int main() {
-    list<double> numbers = {11.2, 7.5, 23.6, 18.4, 29.1};
-
-    cout << "Завдання 3 (зворотний порядок):" << endl;
-    for (auto it = numbers.rbegin(); it != numbers.rend(); ++it) {
-        cout << *it << " ";
+    queue<char> letters;
+    
+    string text = "Hello World! C++ Programming is Great.";
+    
+    for (int i = 0; i < text.length(); i++) {
+        letters.push(text[i]);
     }
-    cout << endl;
+    
+    int uppercaseCount = 0;
+    
+    while (!letters.empty()) {
+        char current = letters.front();
+        letters.pop();
+
+        if (current >= 'A' && current <= 'Z') {
+            uppercaseCount++;
+        }
+    }
+    
+    cout << "Кількість великих англійських літер: " << uppercaseCount << endl;
     
     return 0;
 }
@@ -167,10 +183,10 @@ int main() {
 
 *Результат виконання:*
 ```
-Завдання 3 (зворотний порядок):
-29.1 18.4 23.6 7.5 11.2
+Кількість великих англійських літер: 5
+
 ```
-<img width="1900" height="585" alt="image" src="https://github.com/user-attachments/assets/df028515-5abb-410d-bbe2-efcedc52e1df" />
+<img width="1355" height="427" alt="image" src="https://github.com/user-attachments/assets/29f2a783-c85c-4d02-80b2-cacb3a3b84cf" />
 
 
 **Завдання 4. Модифікація значень елементів**
