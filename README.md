@@ -244,6 +244,8 @@ Franko - 100
 
 **Завдання 5. Моделювання процесу**
 
+<img width="406" height="51" alt="image" src="https://github.com/user-attachments/assets/d8fc025f-36ce-4e35-835c-eff369504f9e" />
+
 *Програмний код:*
 
 ```cpp
