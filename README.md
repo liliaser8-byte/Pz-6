@@ -17,6 +17,8 @@
 
 **Завдання 1. Опрацювання чисел**
 
+<img width="802" height="77" alt="Знімок екрана 2026-10-27 122303" src="https://github.com/user-attachments/assets/abc34193-4f58-4b0b-8351-97d51dc47d2d" />
+
 *Програмний код:*
 
 ```cpp
