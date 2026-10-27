@@ -189,30 +189,44 @@ int main() {
 <img width="1355" height="427" alt="image" src="https://github.com/user-attachments/assets/29f2a783-c85c-4d02-80b2-cacb3a3b84cf" />
 
 
-**Завдання 4. Модифікація значень елементів**
+**Завдання 4. Опрацювання записів**
+
+<img width="601" height="52" alt="image" src="https://github.com/user-attachments/assets/18148353-b185-4c1e-93ec-a6b58a06fca4" />
 
 *Програмний код:*
 
 ```cpp
 #include <iostream>
-#include <list>
+#include <queue>
+#include <string>
 
 using namespace std;
 
-int main()
-{
-    list<double> numbers = { 11.2, 7.5, 23.6, 18.4, 29.1 };
+struct Participant {
+    string surname;
+    int score;
+};
 
-    for (auto it = numbers.begin(); it != numbers.end(); ++it)
-    {
-        *it = *it * 3.0;
+int main() {
+    queue<Participant> participants;
+
+    participants.push({"Shevchenko", 95});
+    participants.push({"Koval", 88});
+    participants.push({"Boyko", 92});
+    participants.push({"Tkachenko", 85});
+    participants.push({"Franko", 100});
+
+    cout << "Учасники з результатом не нижче 90 балів:\n";
+
+    while (!participants.empty()) {
+        Participant p = participants.front();
+        participants.pop();
+
+        if (p.score >= 90) {
+            cout << p.surname << " - " << p.score << endl;
+        }
     }
 
-    for (auto it = numbers.begin(); it != numbers.end(); ++it)
-    {
-        cout << *it << " ";
-    }
-    
     return 0;
 }
 
@@ -220,11 +234,15 @@ int main()
 
 *Результат виконання:*
 ```
-Після множення на 3: 33.6 22.5 70.8 55.2 87.3
+Учасники з результатом не нижче 90 балів:
+Shevchenko - 95
+Boyko - 92
+Franko - 100
 ```
-<img width="1897" height="570" alt="image" src="https://github.com/user-attachments/assets/21576507-f344-4f22-8f60-a8d0dfe79416" />
+<img width="1745" height="506" alt="image" src="https://github.com/user-attachments/assets/f9026474-e65e-4e15-be08-2e99e0bf546f" />
 
-**Завдання 5. Пошук, умовне видалення та вставка**
+
+**Завдання 5. Моделювання процесу**
 
 *Програмний код:*
 
@@ -265,50 +283,5 @@ int main() {
 ```
 <img width="1767" height="631" alt="image" src="https://github.com/user-attachments/assets/cc6882ff-68e5-4616-9b7e-a5cd9a575312" />
 
-
-**Завдання 6. Підрахунок середнього та зворотне виведення**
-
-*Програмний код:*
-
-```cpp
-#include <iostream>
-#include <list>
-
-using namespace std;
-
-int main() {
-    list<double> numbers = {11.2, 7.5, 23.6, 18.4, 29.1};
-    
-    double sum = 0;
-    int count = 0;
-    
-    for (auto it = numbers.begin(); it != numbers.end(); ++it) {
-        if (*it < 20.0) {
-            sum += *it;
-            count++;
-        }
-    }
-    
-    if (count > 0) {
-        cout << "Середнє арифметичне елементів < 20: " << sum / count << endl;
-    }
-    
-    cout << "Список у зворотному порядку: ";
-    for (auto it = numbers.rbegin(); it != numbers.rend(); ++it) {
-        cout << *it << " ";
-    }
-    cout << endl;
-    
-    return 0;
-}
-
-```
-
-*Результат виконання:*
-```
-Середнє арифметичне елементів < 20: 12.3667
-Список у зворотному порядку: 29.1 18.4 23.6 7.5 11.2
-```
-<img width="1912" height="688" alt="image" src="https://github.com/user-attachments/assets/ea5b4efc-9e82-4264-999c-2d9a6b3da658" />
 
 **Висновок:** Під час виконання практичної роботи було закріплено навички використання контейнера `std::list` у мові C++ для роботи з дійсними числами типу `double`. Опрацьовано механізми додавання та видалення елементів на кінцях списку (`push_front`, `push_back`, `pop_front`), а також точкову вставку та видалення за допомогою ітераторів (`insert`, `erase`). Особливу увагу було приділено роботі з вказівниками-ітераторами: прямому проходу циклом `for` для обчислень і зміни поточних значень елементів та зворотному проходу за допомогою `rbegin()` / `rend()`. Також були реалізовані алгоритми пошуку середнього арифметичного за умовою та умовної модифікації структури списку.
