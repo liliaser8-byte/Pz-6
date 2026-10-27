@@ -79,46 +79,64 @@ int main() {
 
 
 
-**Завдання 2. Додавання та видалення елементів**
+**Завдання 2. Фільтрування елементів**
+<img width="601" height="47" alt="image" src="https://github.com/user-attachments/assets/7f9f069b-9299-4ddf-b57f-00a24357c888" />
 
 *Програмний код:*
 
 ```cpp
 #include <iostream>
-#include <list>
+#include <queue>
 
 using namespace std;
 
-int main() {
-    list<double> numbers = {11.2, 7.5, 23.6, 18.4, 29.1};
-
-    cout << "Початковий список: ";
-    for (auto it = numbers.begin(); it != numbers.end(); ++it) {
-        cout << *it << " ";
+bool containsZero(int n) {
+    if (n == 0) return true;
+    while (n > 0) {
+        if (n % 10 == 0) return true;
+        n /= 10;
     }
-    cout << endl;
-
-    numbers.push_front(4.5);
-    numbers.push_back(32.5);
-    numbers.pop_front();
-    
-    cout << "Після змін: ";
-    for (auto it = numbers.begin(); it != numbers.end(); ++it) {
-        cout << *it << " ";
-    }
-    cout << endl;
-    
-    return 0;
+    return false;
 }
 
+int main() {
+    queue<int> source;
+    queue<int> result;
+
+    for (int i = 1; i <= 150; i++) {
+        source.push(i);
+    }
+
+ 
+    while (!source.empty()) {
+        int x = source.front();
+        source.pop();
+
+        if (!containsZero(x)) {
+            result.push(x);
+        }
+    }
+
+    cout << "Числа без цифри 0:\n";
+
+    while (!result.empty()) {
+        cout << result.front() << " ";
+        result.pop();
+    }
+    
+    cout << endl;
+
+    return 0;
+}
 ```
 
 *Результат виконання:*
 ```
-Початковий список: 11.2 7.5 23.6 18.4 29.1
-Після змін: 11.2 7.5 23.6 18.4 29.1 32.5
+Числа без цифри 0:
+1 2 3 4 5 6 7 8 9 11 12 13 14 15 16 17 18 19 21 22 23 24 25 26 27 28 29 31 32 33 34 35 36 37 38 39 41 42 43 44 45 46 47 48 49 51 52 53 54 55 56 57 58 59 61 62 63 64 65 66 67 68 69 71 72 73 74 75 76 77 78 79 81 82 83 84 85 86 87 88 89 91 92 93 94 95 96 97 98 99 111 112 113 114 115 116 117 118 119 121 122 123 124 125 126 127 128 129 131 132 133 134 135 136 137 138 139 141 142 143 144 145 146 147 148 149
 ```
-<img width="1896" height="622" alt="image" src="https://github.com/user-attachments/assets/888cb366-38df-488b-8ac9-9f4970ffe1b9" />
+<img width="1898" height="616" alt="image" src="https://github.com/user-attachments/assets/428c1501-fb44-49a0-b435-771c22e1a2db" />
+
 
 **Завдання 3. Виведення списку у зворотному порядку**
 
