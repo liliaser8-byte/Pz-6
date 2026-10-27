@@ -80,6 +80,7 @@ int main() {
 
 
 **Завдання 2. Фільтрування елементів**
+
 <img width="601" height="47" alt="image" src="https://github.com/user-attachments/assets/7f9f069b-9299-4ddf-b57f-00a24357c888" />
 
 *Програмний код:*
